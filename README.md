@@ -28,7 +28,7 @@ class IExactIn(Lookup):
         lhs, lhs_params = self.process_lhs(compiler, connection)
         rhs, rhs_params = self.process_rhs(compiler, connection)
         rhs_params = list(rhs_params)
-        sql = f"UPPER({lhs}) ILIKE ANY(array[{', '.join(rhs_params)}])"
+        sql = f"{lhs} ILIKE ANY(array[{', '.join(rhs_params)}])"
         params = list(lhs_params)
         return sql, params
 ```
